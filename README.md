@@ -17,7 +17,7 @@ _DISCLAIMER: Due to the low budget of this project ($0), I have not been able to
 
 Below is how the project is setup:
 ```
-/trading-bot
+/TradingBot
   /General
     /Data
       {CSVs containing general stock information}
