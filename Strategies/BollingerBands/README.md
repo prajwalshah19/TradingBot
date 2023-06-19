@@ -17,7 +17,7 @@ It then uses this factor to determine a value to trade for the given stock using
 ```
 Trade Value = 0.04 * Buying Power * (Stock Market Cap / Average Market Cap ) * f
 ```
-Note: If sell signal is given to position that doesn't exist, the algorithm will ignore it.
+Note: If a sell signal is given to position that doesn't exist, the algorithm will ignore it.
 
 ## Setup
 To set up the BBands strategy after initializing the repository, first ```cd TradingBot``` then run ```python3 -c "from main import bbands_run; bbands_run(capital, percent)``` where capital is your portfolio size and percent is the percent of portfolio being allocated to this strategy.
