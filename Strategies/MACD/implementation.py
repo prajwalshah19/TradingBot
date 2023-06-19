@@ -48,7 +48,7 @@ def macd_data():
 
 def make_macd_port(capital, percent):
     bp = capital * percent
-    stocks = pd.read_csv('./General/Data/sp_100_stocks.csv')
+    stocks = pd.read_csv('General/Data/marketCap.csv')
     #display(stocks)
     total = stocks['Market Cap'].sum()
     #print(total)
@@ -60,7 +60,7 @@ def make_macd_port(capital, percent):
         val = ((stocks['Market Cap'][i]) / total) * bp
         newPort.loc[len(newPort.index)] = [stocks["Ticker"][i], val]
     #display(newPort)
-    filepath = Path(f'Logs/macd_init_port.csv')  
+    filepath = Path(f'Strategies/MACD/Data/macd_init_port.csv')  
     filepath.parent.mkdir(parents=True, exist_ok=True)  
     newPort.to_csv(filepath)  
 
@@ -69,7 +69,7 @@ def make_macd_port(capital, percent):
 #TRADING METHODS
 def macd_init_portfolio(capital, percent):
     make_macd_port(capital, percent)
-    stocks = pd.read_csv("./Strategies/MACD/Logs/macd_init_port.csv")
+    stocks = pd.read_csv("Strategies/MACD/Data/macd_init_port.csv")
     rb_login()
     client = alpaca_login()
     c = 0
@@ -93,7 +93,7 @@ def macd_init_portfolio(capital, percent):
     print("MCAP Weighted SP-100 portfolio initialized", c)
 
 def macd():
-    macd_data(100000, .4)
+    macd_data(1000, .2)
     rb_login()
     client = alpaca_login()
     stocks = pd.read_csv(f'./Strategies/MACD/Logs/{datetime.date.today()}macd_trades.csv')

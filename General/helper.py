@@ -35,11 +35,11 @@ def create_batches(info, bsize):
 
 
 def update_market_cap():
-    stocks = pd.read_csv('./Data/sp_100_stocks.csv')
+    stocks = pd.read_csv('General/Data/sp_100_stocks.csv')
     
     my_cols = ['Ticker', 'Market Cap']
     mcap = pd.DataFrame(columns = my_cols)
-    batches = create_batches(stocks['Ticker'], 15)
+    batches = create_batches(stocks['Ticker'], 20)
     #print(batches)
     for item in batches:
         print(item.split())
@@ -48,9 +48,10 @@ def update_market_cap():
             t = ticker.replace(",", "")
             t = t.replace(".", "-")
             stock = yf.Ticker(t).info
-            print(ticker, stock["marketCap"])
+            print(ticker.replace(",", ""), stock["marketCap"])
             mcap.loc[len(mcap.index)] = [ticker.replace(",", ""), stock["marketCap"]]
         time.sleep(61)
-    filepath = Path(f'Data/marketCap.csv')  
+    filepath = Path.Path(f'General/Data/marketCap.csv')  
     filepath.parent.mkdir(parents=True, exist_ok=True)  
     mcap.to_csv(filepath)  
+
