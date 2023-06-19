@@ -12,9 +12,9 @@ def macd_run(capital = 1000, percent = 0.2, init = False):
 def bbands_run(capital = 1000, percent = 0.2):
     tz = pytz.timezone('US/Eastern')
     bp = capital * percent
-    print(datetime.now(tz).hour, datetime.now(tz).minute)
+    #print(datetime.now(tz).hour, datetime.now(tz).minute)
     time = [datetime.now(tz).hour, datetime.now(tz).minute]
-    while (time[0] > 9 and time[1] > 30) and (time[0] < 16):
+    while (time[0] > 9 and time[1] > 1) and (time[0] < 16):
         time = [datetime.now(tz).hour, datetime.now(tz).minute]
         if time[1] == 26 or time[0] == 56:
             print("starting process")
