@@ -53,7 +53,7 @@ Below is how the project is setup:
 3. Install Dependencies ```pip install -r requirements.txt```
 4. Open ```Secrets-Demo```, update the keys in ```keys.py``` and rename ```Secrets-Demo``` to ```Secrets```
 
-Note: If your local machine is runnig Python 3.11, please set up a virtual environment with Python 3.10 to ensure dependency compatibility.
+Note: If your local machine is running Python 3.11, please set up a virtual environment with Python 3.10 to ensure dependency compatibility.
 
 ## Usage
 
