@@ -5,7 +5,7 @@ Bollinger Bands (BBands) is a technical indicator based on using a simple moving
 The BBands trading strategy doesn't initialize a set portfolio and instead only trades from a list of 25-30 high growth yet stable stocks.
 
 ## Trades
-The BBands strategy excecutes once every half an hour starting at 9:30 AM EST and ending at 4:00 PM EST. To perform its calculation it first determines a composite indicator using a stocks price, upper BBand, and lower BBand, called the B%. The B% is calculated as follows: 
+The BBands strategy executes once every half an hour starting at 9:30 AM EST and ending at 4:00 PM EST. To perform its calculation it first determines a composite indicator using a stocks price, upper BBand, and lower BBand, called the B%. The B% is calculated as follows: 
 ```
 B% = (Price - Lower Band ) / (Upper Band - Lower Band )
 ```
