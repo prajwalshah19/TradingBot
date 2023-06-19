@@ -13,8 +13,8 @@ This bot operates by implementing numerous techinical trading strategies that op
 | Alpaca API       | Read current positions and execute paper trades.  |
 | RobinStocks Package | Get real time stock prices (temporary) and execute real money trades (coming soon).  |
 
-_DISCLAIMER: This project is designed to use no paid APIs and therefore uses some unorthodox methods to get data and perform technical analysis, such as using multiple APIs and time delays to get around API limits.
-_
+_DISCLAIMER: This project is designed to use no paid APIs and therefore uses some unorthodox methods to get data and perform technical analysis, such as using multiple APIs and time delays to get around API limits._
+
 Below is how the project is setup:
 ```
 /TradingBot
