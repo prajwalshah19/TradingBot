@@ -1,0 +1,10 @@
+requests==2.31.0
+aiohttp==3.8.1
+alpaca-py==0.8.2
+robin-stocks
+yfinance
+pandas 
+time
+datetime
+pathlib
+numpy
