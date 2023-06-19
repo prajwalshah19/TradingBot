@@ -48,7 +48,7 @@ def macd_data():
 
 def make_macd_port(capital, percent):
     bp = capital * percent
-    stocks = pd.read_csv('General/Data/marketCap.csv')
+    stocks = pd.read_csv('General/Data/sp_100_marketCap.csv')
     #display(stocks)
     total = stocks['Market Cap'].sum()
     #print(total)
