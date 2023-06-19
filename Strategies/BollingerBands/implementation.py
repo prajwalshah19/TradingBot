@@ -2,6 +2,7 @@ import pandas as pd
 import requests
 import time
 import datetime
+import pytz
 from pathlib import Path
 from alpaca.trading.requests import MarketOrderRequest
 from alpaca.trading.enums import OrderSide, TimeInForce
@@ -46,6 +47,7 @@ def bbands(bp):
     client = alpaca_login()
     cols = ['Ticker', 'Side', 'Value$']
     table = pd.DataFrame(columns = cols)
+    tz = pytz.timezone('US/Eastern')
     #bbands_data()
     stocks = pd.read_csv(f'Strategies/BollingerBands/Data/{datetime.date.today()}bbands_data.csv')
     mCaps = pd.read_csv('General/Data/high_growth25_marketCap.csv')
@@ -88,7 +90,7 @@ def bbands(bp):
                     print(stocks["Ticker"][i], side, val)
                 except:
                     print(stocks["Ticker"][i], "no open position to sell from")
-    filepath = Path(f'./Strategies/BollingerBands/Logs/{datetime.datetime.now()}bbands_trades.csv')  
+    filepath = Path(f'./Strategies/BollingerBands/Logs/{datetime.datetime.now(tz)}bbands_trades.csv')  
     filepath.parent.mkdir(parents=True, exist_ok=True)  
     table.to_csv(filepath) 
 
