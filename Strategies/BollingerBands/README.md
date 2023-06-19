@@ -1,5 +1,5 @@
 # Bollinger Bands Trading Strategy
-Bollinger Bands (BBands) is a technical indicator based on using a simple moving average given a number of periods (typically 20) and set amount of standard deviations (typically 2) to construct upper and lower bounds of a stocks price level. It is powerful because they adjust according to volatility swings due to the use fo standard deviation in their calculation.
+Bollinger Bands (BBands) is a technical indicator based on using a simple moving average given a number of periods (typically 20) and set amount of standard deviations (typically 2) to construct upper and lower bounds of a stocks price level. It is powerful because it adjusts according to volatility swings due to the use of standard deviation in its calculation.
 
 ## Initialization
 The BBands trading strategy doesn't initialize a set portfolio and instead only trades from a list of 25-30 high growth yet stable stocks.
