@@ -1,6 +1,6 @@
 # TradingBot
 
-This is a stock market trading bot that aims to utilize various methods of technical analysis to buy and sell securities with the intent of outperforming the market. The main goal of this bot is not to turn a profit, rather it is to help educate me on the workings of the stock market and algorithmic trading.
+This is a stock market trading bot that aims to utilize various methods of technical analysis to buy and sell securities with the intent of outperforming the market. 
 
 ## Overview
 
@@ -13,7 +13,7 @@ This bot operates by implementing numerous techinical trading strategies that op
 | Alpaca API       | Read current positions and execute paper trades.  |
 | RobinStocks Package | Get real time stock prices (temporary) and execute real money trades (coming soon).  |
 
-_DISCLAIMER: Due to the low budget of this project ($0), I have not been able to purchase a premium subscription to stock market data API. Therefore, I had to develop workarounds to maintain the projects intent while working with limited access to data. Due to this, I use multiple API's or packages rather than one premium subscription. Also, some of the data intensive applications are time-delayed to get around API rate limits._
+_DISCLAIMER: This project is designed to use no paid APIs and therefore uses some unorthodox methods to get data and perform technical analysis, such as using multiple APIs and time delays to get around API limits._
 
 Below is how the project is setup:
 ```
@@ -53,7 +53,7 @@ Below is how the project is setup:
 3. Install Dependencies ```pip install -r requirements.txt```
 4. Open ```Secrets-Demo```, update the keys in ```keys.py``` and rename ```Secrets-Demo``` to ```Secrets```
 
-Note: If your local machine is runnig Python 3.11, please set up a virtual environment with Python 3.10 to ensure dependency compatibility.
+Note: If your local machine is running Python 3.11, please set up a virtual environment with Python 3.10 to ensure dependency compatibility.
 
 ## Usage
 
@@ -73,6 +73,8 @@ Trading bot uses the following packages
 ## Contributions
 
 Contributions are welcome and encouraged. Please fork and make changes. For anyone with experience in algorithmic trading, feel free to implement your own strategy!
+
+Pull requests are welcomed.
 
 ## License
 MIT License
