@@ -48,25 +48,27 @@ def bbands(bp):
     cols = ['Ticker', 'Side', 'Value$']
     table = pd.DataFrame(columns = cols)
     tz = pytz.timezone('US/Eastern')
-    #bbands_data()
+    bbands_data()
     stocks = pd.read_csv(f'Strategies/BollingerBands/Data/{datetime.date.today()}bbands_data.csv')
     mCaps = pd.read_csv('General/Data/high_growth25_marketCap.csv')
     average_mCap = mCaps['Market Cap'].mean()
     side = ""
-    print(average_mCap)
+    #print(average_mCap)
     for i in range(len(stocks["Ticker"])):
         price = get_ask_price(stocks["Ticker"][i])
+        
         if stocks["BBands%"][i] < 0.3:
             side = "buy"
             factor = 1 + (abs(stocks["BBands%"][i] - 0.3))/0.3
-            table.loc[len(table.index)] = [stocks["Ticker"][i], side, val]
+            
         elif stocks["BBands%"][i] > 0.7:
             side = "sell"
             factor = 1 + (abs(stocks["BBands%"][i] - 0.7))/0.7
-            table.loc[len(table.index)] = [stocks["Ticker"][i], side, val]
+            
         else:
             continue
         val = bp * (mCaps["Market Cap"][i] / average_mCap) * .04 * factor
+        
         if val > 1:
             if stocks["BBands%"][i] < 0.3:
                 data = MarketOrderRequest(
@@ -76,20 +78,23 @@ def bbands(bp):
                         time_in_force = TimeInForce.DAY
                             )
                 order = client.submit_order(order_data = data)
-
+                table.loc[len(table.index)] = [stocks["Ticker"][i], side, val]
                 print(stocks["Ticker"][i], side, val)
             else:
                 try:
+                    pos = float(client.get_open_position(stocks["Ticker"][i]).qty)
+                    quant = (val / price) if val < pos else (pos/price)
                     data = MarketOrderRequest(
                         symbol = stocks["Ticker"][i],
-                        qty = val / price,
+                        qty = quant,
                         side = OrderSide.SELL ,
                         time_in_force = TimeInForce.DAY
                             )
                     order = client.submit_order(order_data = data)
+                    table.loc[len(table.index)] = [stocks["Ticker"][i], side, val]
                     print(stocks["Ticker"][i], side, val)
-                except:
-                    print(stocks["Ticker"][i], "no open position to sell from")
+                except Exception as e:
+                    print(stocks["Ticker"][i], "no open position to sell from, exception -->", e)
     filepath = Path(f'./Strategies/BollingerBands/Logs/{datetime.datetime.now(tz)}bbands_trades.csv')  
     filepath.parent.mkdir(parents=True, exist_ok=True)  
     table.to_csv(filepath) 

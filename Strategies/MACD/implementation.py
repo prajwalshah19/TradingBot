@@ -93,7 +93,7 @@ def macd_init_portfolio(capital, percent):
     print("MCAP Weighted SP-100 portfolio initialized", c)
 
 def macd():
-    macd_data(1000, .2)
+    macd_data()
     rb_login()
     client = alpaca_login()
     stocks = pd.read_csv(f'./Strategies/MACD/Logs/{datetime.date.today()}macd_trades.csv')

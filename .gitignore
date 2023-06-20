@@ -171,3 +171,5 @@ cython_debug/
 
 /Strategies/MACD/Logs
 /Strategies/MACD/Data
+/Strategies/BollingerBands/Data
+/Strategies/BollingerBands/Logs
