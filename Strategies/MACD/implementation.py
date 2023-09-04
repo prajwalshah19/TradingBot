@@ -103,7 +103,7 @@ def macd():
     for i in range(len(stocks["Ticker"])):
         price = get_ask_price(stocks["Ticker"][i])
         #composite = (stocks['MACD'][i] - stocks['Signal'][i]) + stocks['Hist'][i]
-        percentChange = (stocks['MACD'][i] - stocks['Signal'][i]) / stocks['MACD'][i]
+        percentChange = (stocks['MACD'][i] - stocks['Signal'][i]) / ((stocks['MACD'][i] + stocks['Signal'][i]) /2)
         try: 
             position = float(client.get_open_position(stocks["Ticker"][i]).qty)
             
